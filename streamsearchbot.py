@@ -28,15 +28,24 @@ async def search(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     await event.reply(
-        message=f"**Hello, {firstname}, I Am Inline Stream Search Bot.** \n**Using Me You Can Fetch Torrent Magnet, Youtube Videos Link, Jio Saavan Music Links** \n**(C) @Bot_Gram_Developers**",
+        message=
+        f"**Hello, {firstname}, I Am Inline Stream Search Bot.** \n**Using Me You Can Fetch Torrent Magnet, Youtube Videos Link, Jio Saavan Music Links** \n**(C) @Bot_Gram_Developers**",
         buttons=[
-            [Button.switch_inline("✳️Search Youtube✳️", query="yt ", same_peer=True)],
             [
-                Button.switch_inline(
-                    "✳️Search Torrent✳️", query="torrent ", same_peer=True
-                )
+                Button.switch_inline("✳️Search Youtube✳️",
+                                     query="yt ",
+                                     same_peer=True)
             ],
-            [Button.switch_inline("✳️Search JioMusic✳️", query="jm ", same_peer=True)],
+            [
+                Button.switch_inline("✳️Search Torrent✳️",
+                                     query="torrent ",
+                                     same_peer=True)
+            ],
+            [
+                Button.switch_inline("✳️Search JioMusic✳️",
+                                     query="jm ",
+                                     same_peer=True)
+            ],
         ],
     )
 
@@ -68,9 +77,9 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             text="**Please, Search Again With Correct Keyword, Thank you !**",
             buttons=[
                 [
-                    Button.switch_inline(
-                        "Search Again", query="torrent ", same_peer=True
-                    )
+                    Button.switch_inline("Search Again",
+                                         query="torrent ",
+                                         same_peer=True)
                 ],
             ],
         )
@@ -87,16 +96,14 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             seeders = okpro[i]["seeder"]
             okayz = f"**Title :** `{okiknow}` \n**Size :** `{starksize}` \n**Type :** `{starky}` \n**Seeder :** `{seeders}` \n**Leecher :** `{okpros}` \n**Magnet :** `{sadstark}` "
             sedme = f"Size : {starksize} Type : {starky} Age : {seds}"
-            results.append(
-                await event.builder.article(
-                    title=okiknow,
-                    description=sedme,
-                    text=okayz,
-                    buttons=Button.switch_inline(
-                        "Search Again", query="torrent ", same_peer=True
-                    ),
-                )
-            )
+            results.append(await event.builder.article(
+                title=okiknow,
+                description=sedme,
+                text=okayz,
+                buttons=Button.switch_inline("Search Again",
+                                             query="torrent ",
+                                             same_peer=True),
+            ))
     else:
         for sedz in okpro:
             seds = sedz["age"]
@@ -108,18 +115,16 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             seeders = sedz["seeder"]
             okayz = f"**Title :** `{okiknow}` \n**Size :** `{starksize}` \n**Type :** `{starky}` \n**Seeder :** `{seeders}` \n**Leecher :** `{okpros}` \n**Magnet :** `{sadstark}` "
             sedme = f"Size : {starksize} Type : {starky} Age : {seds}"
-            results.append(
-                await event.builder.article(
-                    title=okiknow,
-                    description=sedme,
-                    text=okayz,
-                    buttons=[
-                        Button.switch_inline(
-                            "Search Again", query="torrent ", same_peer=True
-                        )
-                    ],
-                )
-            )
+            results.append(await event.builder.article(
+                title=okiknow,
+                description=sedme,
+                text=okayz,
+                buttons=[
+                    Button.switch_inline("Search Again",
+                                         query="torrent ",
+                                         same_peer=True)
+                ],
+            ))
     await event.answer(results)
 
 
@@ -129,7 +134,10 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     testinput = event.pattern_match.group(1)
     starkisnub = urllib.parse.quote_plus(testinput)
     results = []
-    search = SearchVideos(f"{testinput}", offset=1, mode="dict", max_results=20)
+    search = SearchVideos(f"{testinput}",
+                          offset=1,
+                          mode="dict",
+                          max_results=20)
     mi = search.result()
     moi = mi["search_result"]
     if search == None:
@@ -138,7 +146,11 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             description="Check Your Spelling / Keyword",
             text="**Please, Search Again With Correct Keyword, Thank you !**",
             buttons=[
-                [Button.switch_inline("Search Again", query="yt ", same_peer=True)],
+                [
+                    Button.switch_inline("Search Again",
+                                         query="yt ",
+                                         same_peer=True)
+                ],
             ],
         )
         await event.answer([resultm])
@@ -153,16 +165,14 @@ async def inline_id_handler(event: events.InlineQuery.Event):
         kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
         okayz = f"**Title :** `{thum}` \n**Link :** `{mo}` \n**Channel :** `{thums}` \n**Views :** `{tw}` \n**Duration :** `{td}`"
         hmmkek = f"Channel : {thums} \nDuration : {td} \nViews : {tw}"
-        results.append(
-            await event.builder.article(
-                title=thum,
-                description=hmmkek,
-                text=okayz,
-                buttons=Button.switch_inline(
-                    "Search Again", query="yt ", same_peer=True
-                ),
-            )
-        )
+        results.append(await event.builder.article(
+            title=thum,
+            description=hmmkek,
+            text=okayz,
+            buttons=Button.switch_inline("Search Again",
+                                         query="yt ",
+                                         same_peer=True),
+        ))
     await event.answer(results)
 
 
@@ -185,21 +195,18 @@ async def inline_id_handler(event: events.InlineQuery.Event):
         okayz = (
             f"**Song Name :** `{okmusic}` \n**Singer :** `{singer}` \n**Song Url :** `{hmmstar}`"
             f"\n**Language :** `{langs}` \n**Download Able Url :** `{hidden_url}`"
-            f"\n**Duration :** `{hmm}`"
-        )
+            f"\n**Duration :** `{hmm}`")
         hmmkek = (
             f"Song : {okmusic} Singer : {singer} Duration : {hmm} \nLanguage : {langs}"
         )
-        results.append(
-            await event.builder.article(
-                title=okmusic,
-                description=hmmkek,
-                text=okayz,
-                buttons=Button.switch_inline(
-                    "Search Again", query="jm ", same_peer=True
-                ),
-            )
-        )
+        results.append(await event.builder.article(
+            title=okmusic,
+            description=hmmkek,
+            text=okayz,
+            buttons=Button.switch_inline("Search Again",
+                                         query="jm ",
+                                         same_peer=True),
+        ))
     await event.answer(results)
 
 
@@ -213,16 +220,25 @@ async def inline_handler(event):
         resulte = builder.article(
             title="Usage Guide.",
             description="(C) @StarkGanG",
-            text=f"**How To Use Me?** \n**Youtube :** `@{firstname} yt <query>` \n**Example :** `@{firstname} yt why we lose song` \n\n**Torrent :** `@{firstname} torrent <query>` \n**Example :** `@{firstname} torrent avengers endgame ` \n\n**JioSaavan :** `@{firstname} jm <query>` \n**Example :** `@{firstname} jm dilbaar`",
+            text=
+            f"**How To Use Me?** \n**Youtube :** `@{firstname} yt <query>` \n**Example :** `@{firstname} yt why we lose song` \n\n**Torrent :** `@{firstname} torrent <query>` \n**Example :** `@{firstname} torrent avengers endgame ` \n\n**JioSaavan :** `@{firstname} jm <query>` \n**Example :** `@{firstname} jm dilbaar`",
             buttons=[
                 [Button.url("Contact Me", f"t.me/{firstname}")],
-                [Button.switch_inline("Search Youtube", query="yt ", same_peer=True)],
                 [
-                    Button.switch_inline(
-                        "Search Torrent", query="torrent ", same_peer=True
-                    )
+                    Button.switch_inline("Search Youtube",
+                                         query="yt ",
+                                         same_peer=True)
                 ],
-                [Button.switch_inline("Search JioSaavn", query="jm ", same_peer=True)],
+                [
+                    Button.switch_inline("Search Torrent",
+                                         query="torrent ",
+                                         same_peer=True)
+                ],
+                [
+                    Button.switch_inline("Search JioSaavn",
+                                         query="jm ",
+                                         same_peer=True)
+                ],
             ],
         )
         await event.answer([resulte])
