@@ -1,21 +1,18 @@
-import requests
-from youtubesearchpython import SearchVideos
-from telegraph import Telegraph
-from telethon.tl.types import InputWebDocument
-from telethon import TelegramClient, events
-from telethon import custom, events, Button
-import re
-import urllib
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from Configs import Config
-from loggers import logging
 import os
 import re
+import urllib
 from math import ceil
+
 import requests
 import telethon
-from telethon import Button, custom, events, functions
+from telegraph import Telegraph
+from telethon import Button, TelegramClient, custom, events, functions
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import InputWebDocument, MessageEntityMentionName
+from youtubesearchpython import SearchVideos
+
+from Configs import Config
+from loggers import logging
 
 bot = TelegramClient("bot", api_id=Config.API_ID, api_hash=Config.API_HASH)
 torrentbot = bot.start(bot_token=Config.BOT_TOKEN)
