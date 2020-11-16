@@ -6,9 +6,14 @@ from math import ceil
 import requests
 import telethon
 from telegraph import Telegraph
-from telethon import Button, TelegramClient, custom, events, functions
+from telethon import Button
+from telethon import custom
+from telethon import events
+from telethon import functions
+from telethon import TelegramClient
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import InputWebDocument, MessageEntityMentionName
+from telethon.tl.types import InputWebDocument
+from telethon.tl.types import MessageEntityMentionName
 from youtubesearchpython import SearchVideos
 
 from Configs import Config
