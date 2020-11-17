@@ -180,10 +180,10 @@ async def inline_handler(event):
                       [Button.switch_inline("Search Youtube", query="yt ", same_peer=True)],
                       [Button.switch_inline("Search Torrent", query="torrent ", same_peer=True)],
                       [Button.switch_inline("Search JioSaavn", query="jm ", same_peer=True)],
-                              ]
+                             
             )
             await event.answer([resulte])
-print("Bot Is Alive.")
+print("Your Stream Search Bot is Alive. Thank You !")
 def startbot():
     torrentbot.run_until_disconnected()
 
